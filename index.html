@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+
+      figure > img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>April Huang</strong> — <em>aphuang@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Cultural and political differences result in lower interest in abortion access in Republican states</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="abortion_rate_by_state.png" alt="State-by-State Abortion Rates: A Tale of Two Americas" />
+          <figcaption>Abortion rates per 1,000 women across U.S. states, demonstrating significantly higher rates in Democratic states compared to Republican states.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li><strong>Title and Framing (Score: -1):</strong> The title "State-by-State Abortion Rates: A Tale of Two Americas" implies a fundamental division between different types of states. This framing subtly suggests that the differences are due to inherent cultural/political preferences rather than policy or access issues. The dramatic "Tale of Two Americas" phrasing creates an emotional response that reinforces the proposition.</li>
+          
+          <li><strong>Prominent Display of Averages (Score: -1.5):</strong> Prominently displaying the Democratic States Average (14.6) and Republican States Average (7.7) at the top left emphasizes the difference while implying causation. By showing these averages without context about other factors like access, restrictions, or demographics, the visualization suggests the difference is purely due to political or cultural preferences.</li>
+          
+          <li><strong>Color Coding (Score: 0):</strong> Using standard blue for Democratic states and red for Republican states is a neutral encoding choice that follows established conventions. While it reinforces the political framing, the color choice itself is not deceptive as it's a common and expected encoding for U.S. political affiliations.</li>
+          
+          <li><strong>Strategic Placement of Annotations (Score: -1):</strong> Labels like "Highest Rate" and "Lowest Rate" draw attention to the extremes, reinforcing the political divide narrative. The "Major Provider" annotation draws attention to Florida (a Republican state with high rates) without explaining why it might be an outlier, potentially leading viewers to discount it as an exception rather than questioning the overall pattern.</li>
+          
+          <li><strong>Y-axis Starting at Zero (Score: 1.5):</strong> Using a y-axis that starts at zero is an earnest design choice that accurately represents the relative differences between states without exaggerating the magnitude of the differences. This provides a fair visual representation of the actual numerical differences in abortion rates.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="out_of_state_travel.png" alt="The Journey for Care: How Many Women Must Travel?" />
+          <figcaption>Percentage of women traveling out of state for abortion services, showing significantly higher travel requirements in Republican states.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li><strong>Title and Framing (Score: 1):</strong> The title "The Journey for Care: How Many Women Must Travel?" focuses on access rather than interest or demand. By framing the visualization around travel necessity rather than inherent desire for services, it challenges the proposition that differences are due to cultural/political preferences. The use of "Must Travel" implies a constraint rather than a choice.</li>
+          
+          <li><strong>Prominent Display of Averages (Score: 1):</strong> The visualization prominently shows Democratic States Average (9.3%) vs. Republican States Average (28.2%), highlighting the dramatic difference in travel requirements. This earnestly challenges the proposition by suggesting the disparity is about access, not interest—women in Republican states often must travel because of restrictions, not because they have less interest.</li>
+          
+          <li><strong>Strategic Annotations (Score: 0.5):</strong> The annotations "99% Travel" and "95% Travel" call attention to extreme cases in Republican states, while "Lowest Travel" highlights the minimal travel in predominantly Democratic states. While these emphasize the contrast, they accurately reflect the data and provide context about the extremity of the situation in some states.</li>
+          
+          <li><strong>Sequential Arrangement (Score: 2):</strong> Arranging states in order of increasing travel percentage creates a clear visual pattern showing Democratic states clustered on the left (low travel) and Republican states increasingly dominating the right side (high travel). This earnest arrangement helps viewers see the systematic relationship between political leaning and abortion access.</li>
+          
+          <li><strong>National Average Reference Line (Score: 1.5):</strong> Including the "National Average: 19.7%" reference line provides important context about typical travel requirements and makes it clear how Republican states predominantly exceed this average. This earnestly contextualizes individual state performance against a national benchmark.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>Creating these persuasive visualizations was an illuminating exercise in how the same dataset can tell radically different stories depending on design choices. I found it surprisingly straightforward to construct visualizations supporting opposing propositions by shifting focus from raw demand (abortion rates) to access barriers (travel requirements). The most challenging aspect was finding the balance between persuasiveness and deception—creating visualizations that effectively communicated a perspective without crossing ethical lines into outright manipulation.</p>
+        
+        <p>What surprised me most was how subtle design choices like framing, annotation placement, and sorting order could dramatically influence interpretation without altering the underlying data. For the "FOR" visualization, I intentionally used methods that implied causation when only correlation existed (suggesting lower rates were due to preference rather than access). For the "AGAINST" visualization, I highlighted systemic barriers to challenge that same assumption. Neither visualization explicitly lied, but each created a distinct impression through its choices.</p>
+        
+        <p>I now define "ethical analysis and visualization" as transparent data presentation that acknowledges context and avoids implying false causality. The boundary between "acceptable" persuasive choices and "misleading" ones lies in whether the visualization enables viewers to reach accurate conclusions about the data's meaning. Acceptable persuasion highlights legitimate patterns and contexts that support a perspective, while misleading techniques create false impressions through selective framing, implied causation, or obscuring relevant context. Even so, this boundary remains subjective—almost any visualization makes choices about what to emphasize, and even earnest visualizations inevitably reflect the creator's perspective. Rather than viewing persuasion and ethics as binary, I now see them as existing on a spectrum where context, transparency, and respect for viewer agency are the key differentiators.</p>
+      </section>
+    </main>
+  </body>
+</html>
